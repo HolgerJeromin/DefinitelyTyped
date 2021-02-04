@@ -388,21 +388,21 @@ const copyOptions: grunt.file.IFileWriteStringOption = {
              * Returns a string, unless options.encoding is null in which case it returns a Buffer.
              */
             read(filepath: string): string;
-            read(filepath: string, options: IFileEncodedOption): Buffer;
+            read(filepath: string, options: IFileEncodedOption): string | Buffer;
 
             /**
              * Read a file's contents, parsing the data as JSON and returning the result.
              * @see FileModule.read for a list of supported options.
              */
-            readJSON(filepath: string): any;
-            readJSON(filepath: string, options: IFileEncodedOption): Buffer;
+            readJSON<T = any>(filepath: string): T;
+            readJSON<T = any>(filepath: string, options: IFileEncodedOption): T | Buffer;
 
             /**
              * Read a file's contents, parsing the data as YAML and returning the result.
              * @see FileModule.read for a list of supported options.
              */
-            readYAML(filepath: string): any;
-            readYAML(filepath: string, options: IFileEncodedOption): Buffer;
+            readYAML<T = any>(filepath: string): T;
+            readYAML<T = any>(filepath: string, options: IFileEncodedOption): T | Buffer;
 
             /**
              * Write the specified contents to a file, creating intermediate directories if necessary.
